@@ -5,14 +5,15 @@
  */
 package worker;
 
+import Interfaces.Actor;
 import controller.Controller;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.Thread.sleep;
 import java.net.Socket;
 import model.Event;
-import model.Player;
 
 /**
  *
@@ -24,14 +25,13 @@ public class MonsterProducer extends Thread {
     private PrintWriter printWriter;
     private BufferedReader br;
     private Controller controller;
-    private Player player;
+    private Actor player;
 
     public MonsterProducer(Controller controller) throws IOException {
         this.controller = controller;
 
         File file = new File("test.txt");
         this.printWriter = new PrintWriter(file);
-//        this.br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
     }
 
     public void run() {

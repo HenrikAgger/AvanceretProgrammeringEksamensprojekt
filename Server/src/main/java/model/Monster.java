@@ -13,11 +13,11 @@ import java.util.Random;
  * @author Henrik
  */
 public class Monster {
+
     private int d;
 
     private String monsterName;
-;
-    
+
     public Monster(String monsterName) {
         this.monsterName = monsterName;
     }
@@ -29,12 +29,10 @@ public class Monster {
     public void setMonsterName(String monsterName) {
         this.monsterName = monsterName;
     }
-    
-    public int monsterFight(Dice dice){
+
+    public int monsterFight(Dice dice) {
         d = dice.roll();
         return d;
     }
-    
-
 
 }

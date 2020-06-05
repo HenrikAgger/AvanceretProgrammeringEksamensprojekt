@@ -5,6 +5,7 @@
  */
 package model;
 
+import Interfaces.Actor;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Random;
@@ -15,10 +16,9 @@ import java.util.Set;
  * @author Henrik
  */
 public class Room {
-
     String name;
     String description;
-    private Hashtable<String, Player> players;
+    private Hashtable<String, Actor> players;
     private Hashtable<Direction, Room> go;
     private Monster monster;
     Random r = new Random();
@@ -27,7 +27,7 @@ public class Room {
         this.name = name;
         this.description = description;
         go = new Hashtable<Direction, Room>();
-        players = new Hashtable<String, Player>();
+        players = new Hashtable<String, Actor>();
     }
 
     public Room to(Direction direction) {
@@ -43,21 +43,21 @@ public class Room {
         return this.name;
     }
 
-    public void removePlayer(Player p) {
+    public void removePlayer(Actor p) {
         players.remove(p.getName());
     }
 
-    public void addPlayer(Player p) {
+    public void addPlayer(Actor p) {
         players.put(p.getName(), p);
     }
    
-    public Player getRandomPlayer(){
+    public Actor getRandomPlayer(){
         Set<String> keys = players.keySet();
         ArrayList<String> lists = new ArrayList<String>();
         for (String list : keys) {
             lists.add(list);
         }
-        Player player = null;
+        Actor player = null;
         if (players.size()>0){
             int idx = r.nextInt(players.size());
             String key = lists.get(idx);

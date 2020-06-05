@@ -5,6 +5,7 @@
  */
 package worker;
 
+import Interfaces.Actor;
 import controller.Controller;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class PlayerProducer extends Thread {
     private PrintWriter printWriter;
     private BufferedReader br;
     private Controller controller;
-    private Player player;
+    private Actor player;
 
     public PlayerProducer(Socket socket, Controller controller) throws IOException {
         this.socket = socket;
@@ -33,13 +34,6 @@ public class PlayerProducer extends Thread {
         this.br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
     }
 
-//    public void Write(Event event) {
-//        try {
-//            queue.add(event);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
     public void run() {
         while (true) {
             String line = "";
@@ -51,13 +45,12 @@ public class PlayerProducer extends Thread {
                 Thread.currentThread().setName(line);
                 while ((line = br.readLine()) != null) {
                     controller.processMessage(player, line);
-                    
+
                 }
             } catch (IOException e) {
                 e.getStackTrace();
             }
             Event event = new Event(line);
-//            Write(event);
             printWriter.println("Du har valgt at indsætte følgende: " + line);
         }
     }

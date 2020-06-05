@@ -6,12 +6,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.concurrent.ArrayBlockingQueue;
-import model.Event;
-import model.Monster;
-import model.Player;
 
 /**
  *
