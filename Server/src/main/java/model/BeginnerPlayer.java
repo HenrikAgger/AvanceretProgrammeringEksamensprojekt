@@ -13,55 +13,56 @@ import java.util.Random;
  *
  * @author Henrik
  */
-public class BeginnerPlayer extends PlayerDecorator{
-	private String name;
-	private Random rd;
-	
-	public BeginnerPlayer(Actor player) {
-		super(player);
-		this.name = "Beginner_" + player.getName();
-		this.rd = new Random();
-	}
+public class BeginnerPlayer extends PlayerDecorator {
 
-	@Override
-	public int playerFight() {
-		int retVal = 0;
-		retVal = rd.nextInt(3);
-		return retVal;
-	}
+    private String name;
+    private Random rd;
 
-	@Override
-	public Room getRoom() {
-		return player.getRoom();
-	}
+    public BeginnerPlayer(Actor player) {
+        super(player);
+        this.name = "Beginner_" + player.getName();
+        this.rd = new Random();
+    }
 
-	@Override
-	public void setRoom(Room room) {
-		player.setRoom(room);
-	}
+    @Override
+    public int playerFight() {
+        int retVal = 0;
+        retVal = rd.nextInt(3);
+        return retVal;
+    }
 
-	@Override
-	public PrintWriter getWriter() {
-		return player.getWriter();
-	}
+    @Override
+    public Room getRoom() {
+        return player.getRoom();
+    }
 
-	@Override
-	public String getName() {
-		return this.name;
-	}
+    @Override
+    public void setRoom(Room room) {
+        player.setRoom(room);
+    }
 
-	@Override
-	public Gold getGold() {
-		return this.player.getGold();
-	}
+    @Override
+    public PrintWriter getWriter() {
+        return player.getWriter();
+    }
 
-	@Override
-	public void addGold(Gold gold) {
-		this.player.addGold(gold);
-	}
+    @Override
+    public String getName() {
+        return this.name;
+    }
 
-	@Override
-	public int getSizeOfGold() {
-		return this.player.getSizeOfGold();
-	}
+    @Override
+    public Gold getGold() {
+        return this.player.getGold();
+    }
+
+    @Override
+    public void addGold(Gold gold) {
+        this.player.addGold(gold);
+    }
+
+    @Override
+    public int getSizeOfGold() {
+        return this.player.getSizeOfGold();
+    }
 }

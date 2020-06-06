@@ -12,14 +12,15 @@ import model.Event;
  *
  * @author Henrik
  */
-public class Consumer extends Thread{
+public class Consumer extends Thread {
+
     private ArrayBlockingQueue<Event> queue;
-    
-    public Consumer(ArrayBlockingQueue<Event> queue){
+
+    public Consumer(ArrayBlockingQueue<Event> queue) {
         this.queue = queue;
     }
-    
-    public Event readFromQueue(){
+
+    public Event readFromQueue() {
         Event event = null;
         try {
             event = queue.take();
@@ -28,9 +29,9 @@ public class Consumer extends Thread{
         }
         return event;
     }
-    
-    public void run(){
-        while(true){
+
+    public void run() {
+        while (true) {
             try {
                 Event event = null;
                 sleep(10000);

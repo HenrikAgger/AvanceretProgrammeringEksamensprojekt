@@ -45,7 +45,6 @@ public class PlayerProducer extends Thread {
                 Thread.currentThread().setName(line);
                 while ((line = br.readLine()) != null) {
                     controller.processMessage(player, line);
-
                 }
             } catch (IOException e) {
                 e.getStackTrace();
@@ -54,5 +53,4 @@ public class PlayerProducer extends Thread {
             printWriter.println("Du har valgt at indsætte følgende: " + line);
         }
     }
-
 }

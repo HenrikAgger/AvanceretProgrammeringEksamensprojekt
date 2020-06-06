@@ -132,7 +132,6 @@ public class Controller {
     }
 
     public synchronized Actor registerPlayer(String name, PrintWriter printWriter) {
-
         Actor player = null;
         Actor basicplayer = new Player(name, printWriter);
         if (name.equals("kurt")) {
@@ -198,7 +197,6 @@ public class Controller {
         player.getWriter().println("Hi move " + targetToken);
         synchronized (this) {
             Room room = player.getRoom();
-
             room.removePlayer(player);
             Room goToRoom = room.to(Direction.valueOf(targetToken));
             player.setRoom(goToRoom);
@@ -221,7 +219,6 @@ public class Controller {
             System.out.println("Total amount of gold: " + player.getSizeOfGold());
         } else {
             System.out.println(monster.getMonsterName() + " wins, RIP");
-
         }
     }
 
@@ -233,7 +230,6 @@ public class Controller {
         do {
             count++;
             enemy = player.getRoom().getRandomPlayer();
-
         } while (enemy.getName().equals(player.getName()) || count < 4);
         System.out.println(enemy.getName() + " Hi you are being attached " + enemy.getRoom().getName() + " " + targetToken);
         if (enemy == null) {

@@ -12,7 +12,7 @@ import java.io.PrintWriter;
  * @author Henrik
  */
 public class Event {
-
+    
     protected PrintWriter[] writers;
     protected String output;
 

@@ -16,6 +16,7 @@ import java.util.Set;
  * @author Henrik
  */
 public class Room {
+
     String name;
     String description;
     private Hashtable<String, Actor> players;
@@ -35,10 +36,10 @@ public class Room {
         return go;
     }
 
-    public void addRoomToExit(Direction direction, Room room){
+    public void addRoomToExit(Direction direction, Room room) {
         go.put(direction, room);
     }
-    
+
     public String getName() {
         return this.name;
     }
@@ -50,20 +51,20 @@ public class Room {
     public void addPlayer(Actor p) {
         players.put(p.getName(), p);
     }
-   
-    public Actor getRandomPlayer(){
+
+    public Actor getRandomPlayer() {
         Set<String> keys = players.keySet();
         ArrayList<String> lists = new ArrayList<String>();
         for (String list : keys) {
             lists.add(list);
         }
         Actor player = null;
-        if (players.size()>0){
+        if (players.size() > 0) {
             int idx = r.nextInt(players.size());
             String key = lists.get(idx);
             player = players.get(key);
-            
-        } 
+
+        }
         return player;
     }
 
